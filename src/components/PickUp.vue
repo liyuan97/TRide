@@ -1,10 +1,19 @@
 <template>
-  <BottomDialog>
+  <div class="bottom-dialog container absolute p-3 bottom-0">
+    <div class="relative w-full h-full shadow rounded-3xl">
+      <!-- <Notch/> -->
+      <div class="p-3 pt-5 bg-color rounded-3xl flex flex-col">
+        <Source class="p-4" :value="source.place_name"/>
+        <Button class="mt-6 self-center" @click="pickUp">Select</Button>
+      </div>
+    </div>
+  </div>
+  <!-- <BottomDialog>
     <div class="p-3 pt-5 bg-color rounded-3xl flex flex-col">
       <Source class="p-4" :value="source.place_name"/>
       <Button class="mt-6 self-center" @click="pickUp">Select</Button>
     </div>
-  </BottomDialog>
+  </BottomDialog> -->
 </template>
 
 <script setup>
@@ -13,8 +22,8 @@ import Button from '@/components/Button.vue'
 import {source, map, useTrip} from '@/store'
 import mapboxgl from 'mapbox-gl'
 import {useRouter} from 'vue-router'
-import BottomDialog from '@/components/BottomDialog.vue'
-
+// import BottomDialog from '@/components/BottomDialog.vue'
+// import Notch from '@/components/Notch.vue'
 const router = useRouter()
 const {setSourceMarker} = useTrip()
 

@@ -22,7 +22,7 @@ const tripTypes = reactive([
     nearbie: 400,
     icon: Car,
     price: 9,
-    isActive: true
+    isActive: false
   },
   {
     title: 'Helicopter',
