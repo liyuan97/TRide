@@ -52,9 +52,6 @@ import {_tgWebApp} from "@/helpers/helper";
 
 const router = useRouter()
 
-function cancel() {
-  // Todo:
-}
 
 function pay() {
   _tgWebApp().showAlert('Dear User, Payment service currently is not available! please try again later')

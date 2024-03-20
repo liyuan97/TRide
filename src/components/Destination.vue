@@ -6,6 +6,7 @@
     <div class="block w-full">
       <span class="block font-normal text-xs text-gray-400">Pick Off</span>
       <p class="destination w-full border-none outline-none text-xs text-color font-bold">
+        
         {{ value() }}
       </p>
     </div>
@@ -17,7 +18,6 @@ import { MapPinIcon } from '@heroicons/vue/24/outline'
 const props = defineProps(['value'])
 const value = () => {
   if (props.value) return props.value
-
   return 'Where you go?'
 }
 </script>

@@ -57,8 +57,9 @@ export function useTrip() {
 }
 
 export const cars = reactive([
-    {coordinates: [55.2695055, 25.1972018]},
-    {coordinates: [55.3695055, 25.1872018]}
+    {coordinates: [121.47553, 31.228245]},
+    {coordinates: [121.67553, 31.228245]},
+    {coordinates: [121.575, 31.22824]}
 ])
 
 export function useCars() {

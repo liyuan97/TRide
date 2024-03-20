@@ -10,11 +10,11 @@ export default {
 
   data: () => ({
     location: {
-      lng: 55.2695055,
-      lat: 25.1972018,
+      lng: 121.47553,
+      lat: 31.228245,
       bearing: 0,
       pitch: 0,
-      zoom: 13
+      zoom: 10
     }
   }),
   mounted: () => {

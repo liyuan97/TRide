@@ -1,3 +1,52 @@
+<script setup>
+import {reactive} from 'vue'
+import BottomDrawer from '@/components/BottomDrawer.vue'
+import {useRouter} from 'vue-router'
+import Car from '@/components/icons/Car.vue'
+import HeliCopter from '@/components/icons/HeliCopter.vue'
+import Bike from '@/components/icons/Bike.vue'
+import Button from '@/components/Button.vue'
+
+
+const router = useRouter()
+const tripTypes = reactive([
+  {
+    title: 'Bike',
+    nearbie: 5,
+    icon: Bike,
+    price: 6,
+    isActive: false
+  },
+  {
+    title: 'Standard',
+    nearbie: 400,
+    icon: Car,
+    price: 9,
+    isActive: true
+  },
+  {
+    title: 'Helicopter',
+    nearbie: 1,
+    icon: HeliCopter,
+    price: 16.1,
+    isActive: false
+  }
+])
+
+function setActive(tripType) {
+  tripTypes.forEach(function (item) {
+    item.isActive = false
+  })
+  tripType.isActive = true
+}
+
+function request() {
+  router.push({
+    name: 'arriving'
+  })
+}
+</script>
+
 <template>
   <BottomDrawer>
     <div class="container w-full h-full where-to-go pt-5 px-0">
@@ -18,9 +67,8 @@
           <span
               class="price w-full block flex flex-row justify-center items-center h-10 text-gray-800 bg-gray-200 rounded-3xl"
           >
-            <sup class="text-xs font-semibold">$</sup>
-            <span class="text-xl font-bold">{{ priceParts(item.price)[0] }}</span>
-            <sup class="text-xs font-semibold">{{ priceParts(item.price)[1] }}</sup>
+            <sup class="text-xs font-semibold">￥</sup>
+            <span class="text-xl font-bold">{{ item.price }}</span>
           </span>
         </button>
       </div>
@@ -32,55 +80,4 @@
   </BottomDrawer>
 </template>
 
-<script setup>
-import {reactive} from 'vue'
-import BottomDrawer from '@/components/BottomDrawer.vue'
-import {useRouter} from 'vue-router'
-import Car from '@/components/icons/Car.vue'
-import HeliCopter from '@/components/icons/HeliCopter.vue'
-import Bike from '@/components/icons/Bike.vue'
-import Button from '@/components/Button.vue'
-import _ from 'lodash'
 
-const router = useRouter()
-const tripTypes = reactive([
-  {
-    title: 'Bike',
-    nearbie: 5,
-    icon: Bike,
-    price: 6.53,
-    isActive: false
-  },
-  {
-    title: 'Standard',
-    nearbie: 4,
-    icon: Car,
-    price: 9.92,
-    isActive: true
-  },
-  {
-    title: 'Helicopter',
-    nearbie: 1,
-    icon: HeliCopter,
-    price: 16.73,
-    isActive: false
-  }
-])
-
-function setActive(tripType) {
-  tripTypes.forEach(function (item) {
-    item.isActive = false
-  })
-  tripType.isActive = true
-}
-
-function priceParts(price) {
-  return _.split(price, '.')
-}
-
-function request() {
-  router.push({
-    name: 'arriving'
-  })
-}
-</script>
